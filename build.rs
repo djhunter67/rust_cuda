@@ -3,12 +3,11 @@ extern crate cc;
 
 use std::{env, path::PathBuf, process::Command};
 
-use bindgen::CargoCallbacks;
 use regex::Regex;
 
 fn main() {
     // Tell cargo to invalidate the built crate whenever files of interest changes.
-    println!("cargo:rerun-if-changed={}", "cuda");
+    println!("cargo:rerun-if-changed={}", String::from("cuda"));
 
     let out_dir = PathBuf::from(env::var("OUT_DIR").unwrap());
 
@@ -44,7 +43,7 @@ fn main() {
         .header("src/cuda/includes/wrapper.h")
         // Tell cargo to invalidate the built crate whenever any of the
         // included header files changed.
-        .parse_callbacks(Box::new(CargoCallbacks))
+        .parse_callbacks(Box::new(bindgen::CargoCallbacks::new()))
         // we use "no_copy" and "no_debug" here because we don't know if we can safely generate them for our structs in C code (they may contain raw pointers)
         .no_copy("*")
         .no_debug("*")

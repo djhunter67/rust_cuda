@@ -67,5 +67,10 @@ fn main() -> Result<(), DriverError> {
 
     assert!(my_structs.iter().all(|i| i.data == [2.0; 4]));
 
+    println!(
+        "The data produced: {my_structs:?}\n\tNumber of items: {}",
+        my_structs.len()
+    );
+
     Ok(())
 }

@@ -2,3 +2,12 @@
 name = "rust-nvidia"
 version = "0.1.0"
 edition = "2021"
+
+[dependencies]
+cudarc = { version = "0.13.0", features = ["cuda-version-from-build-system"] }
+ndarray = "0.16.1"
+
+[build-dependencies]
+bindgen = "0.71.1"
+cc = "1.2.9"
+regex = "1.11.1"

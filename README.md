@@ -1,4 +1,4 @@
-# Personal Rust Nvidia Comglomeration
+# Personal Rust Nvidia Conglomeration
 
 Use Rust to explore and learn about leveraging the incredible power of Nvidia GPU's (Graphics Processing Unit).
 
